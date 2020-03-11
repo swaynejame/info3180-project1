@@ -1,6 +1,6 @@
 from . import db
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+class UserProfile(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(80))
     lastname = db.Column(db.String(80))
     gender = db.Column(db.String(80))
@@ -8,6 +8,7 @@ class User(db.Model):
     location = db.Column(db.String(80))
     biography = db.Column(db.String(500))
     photo = db.Column(db.String(80))
+    created_on = db.Column(db.DateTime, server_default=db.func.now())
 
 def __init__(self, firstname, lastname,gender, email, location, biography, photo):
     self.firstname = firstname

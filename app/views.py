@@ -12,7 +12,7 @@ from werkzeug.utils import secure_filename
 
 from .forms import ProfileForm
 
-from .models import User
+from .models import UserProfile
 
 ###
 # Routing for your application.

@@ -9,3 +9,5 @@ Flask-SQLAlchemy
 SQLAlchemy
 Flask-WTF
 WTForms
+Flask-Migrate
+Flask-Script

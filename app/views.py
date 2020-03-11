@@ -26,7 +26,9 @@ def home():
 def profile():
     profile_form = ProfileForm()
 
-    """Render the website's add profile page."""
+    if request.method == 'POST'and profile_form.validate_on_submit():
+
+        """Render the website's add profile page."""
     return render_template('profile.html',form=profile_form)
 
 

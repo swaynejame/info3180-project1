@@ -2,9 +2,9 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <h2>Add Profiles</h2>
+    <h2>Add Profile</h2>
     
-    <form method="post" action="{{ url_for('profiles') }}">
+    <form method="post" action="{{ url_for('profile') }}">
 
         {% include 'flash_messages.html' %}
         {{ form.csrf_token }}
@@ -26,13 +26,13 @@
         </div>
 
         <div class="form-group">
-            {{ form.locaton.label }} {{ form.location(class="form-control", placeholder="e.g. Kingston, Jamaica") }}
+            {{ form.location.label }} {{ form.location(class="form-control", placeholder="e.g. Kingston, Jamaica") }}
         </div>
 
         <div class="form-group">
             {{ form.biography.label }} {{ form.biography(class="form-control") }}
         </div>
-        
+
         <p>Profile Picture</p>
 
         <button type="button" class="btn btn-primary">Submit</button>

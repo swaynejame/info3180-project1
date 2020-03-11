@@ -11,3 +11,4 @@ Flask-WTF
 WTForms
 Flask-Migrate
 Flask-Script
+psycopg2

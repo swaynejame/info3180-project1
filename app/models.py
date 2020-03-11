@@ -16,7 +16,7 @@ def __init__(self, firstname, lastname,gender, email, location, biography, photo
     self.email = email
     self.location = location
     self.biography = biography
-    self.photo = picture
+    self.photo = photo
 
 def __repr__(self):
     return '<User %r>' % self.username

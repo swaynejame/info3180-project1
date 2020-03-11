@@ -11,7 +11,6 @@ from flask import render_template, request, redirect, url_for, flash
 from werkzeug.utils import secure_filename
 
 from .forms import ProfileForm
-
 from .models import UserProfile
 
 ###

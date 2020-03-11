@@ -8,7 +8,7 @@ This file creates your application.
 from app import app
 from flask import render_template, request, redirect, url_for, flash
 
-from flask_mail import Message
+from werkzeug.utils import secure_filename
 
 from .forms import ProfileForm
 
@@ -27,6 +27,9 @@ def profile():
     profile_form = ProfileForm()
 
     if request.method == 'POST'and profile_form.validate_on_submit():
+
+        photo = profile_form.photo.data
+        filename = secure_filename(photo.filename)
 
         """Render the website's add profile page."""
     return render_template('profile.html',form=profile_form)

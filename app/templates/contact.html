@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Contact Form</h2>
+    <p>Fill in this form to contact the site owners</p>
+    <form method="post" action="{{ url_for('contact') }}">
+        {% include 'flash_messages.html'%}
+        <!-- {% include 'flash_messages.html' %} -->
+        {{ form.csrf_token }}
+        <div class="form-field">{{ form.name.label }} {{ form.name }}</div>
+        <div class="form-field">{{ form.email.label }} {{ form.email }}</div>
+        <div class="form-field">{{ form.subject.label }} {{ form.subject }}</div>
+        <div class="form-field">{{ form.message.label }} {{ form.message }}</div>
+        {{ form.send }}
+    </form>
+{% endblock %}

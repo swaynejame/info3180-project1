@@ -30,6 +30,14 @@ def profile():
 
     if request.method == 'POST'and profile_form.validate_on_submit():
 
+        firstname = profile_form.firstname.data
+        lastname = profile_form.lastname.data
+        gender = profile_form.gender.data
+        email = profile_form.email.data
+        location = profile_form.location.data
+        biography = profile_form.biography.data
+
+        
         photo = profile_form.photo.data
         filename = secure_filename(photo.filename)
 

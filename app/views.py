@@ -5,7 +5,7 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 
-from app import app
+from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 
 from werkzeug.utils import secure_filename
@@ -29,20 +29,27 @@ def profile():
     profile_form = ProfileForm()
 
     if request.method == 'POST'and profile_form.validate_on_submit():
-
+        # Get validated data from form
         firstname = profile_form.firstname.data
         lastname = profile_form.lastname.data
         gender = profile_form.gender.data
         email = profile_form.email.data
         location = profile_form.location.data
         biography = profile_form.biography.data
-
-        
         photo = profile_form.photo.data
         filename = secure_filename(photo.filename)
 
-        """Render the website's add profile page."""
-    return render_template('profile.html',form=profile_form)
+        # save user to database
+        user = UserProfile(firstname, lastname, gender, email, location, biography, filename)
+        db.session.add(user)
+        db.session.commit()
+
+        flash('User successfully added')
+        return redirect(url_for('listprofiles'))
+
+    flash_errors(profile_form)
+    """Render the website's add profile page."""
+    return render_template('profile.html',form=profile_form, filename=filename)
 
 
 @app.route('/profiles')

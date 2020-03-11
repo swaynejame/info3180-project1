@@ -11,7 +11,7 @@ from flask import render_template, request, redirect, url_for, flash
 from app import mail
 from flask_mail import Message
 
-from .forms import ContactForm
+from .forms import ProfileForm
 
 ###
 # Routing for your application.
@@ -28,24 +28,24 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
-@app.route('/contact',methods=('GET', 'POST'))
-def contact():
-    contactform = ContactForm()
-    if request.method == 'POST':
-        if contactform.validate_on_submit():
-            msg = Message(contactform.subject.data, sender=(contactform.name.data,contactform.email.data),
-            recipients=["to@example.com"])
-            msg.body = contactform.message.data
-            mail.send(msg)
+# @app.route('/contact',methods=('GET', 'POST'))
+# def contact():
+#     contactform = ProfileForm()
+#     if request.method == 'POST':
+#         if contactform.validate_on_submit():
+#             msg = Message(contactform.subject.data, sender=(contactform.name.data,contactform.email.data),
+#             recipients=["to@example.com"])
+#             msg.body = contactform.message.data
+#             mail.send(msg)
 
-            flash('Email successfully sent','success')
-            flash('You have successfully filled out the form', 'success')
+#             flash('Email successfully sent','success')
+#             flash('You have successfully filled out the form', 'success')
 
-            return redirect( url_for('home'))
+#             return redirect( url_for('home'))
             
-        flash_errors(contactform)
-        """Render website's contact page."""
-    return render_template('contact.html',form=contactform)
+#         flash_errors(contactform)
+#         """Render website's contact page."""
+#     return render_template('contact.html',form=contactform)
 
 
 ###

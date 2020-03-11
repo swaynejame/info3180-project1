@@ -24,8 +24,10 @@ def home():
 
 @app.route('/profile')
 def profile():
+    profile_form = ProfileForm()
+
     """Render the website's add profile page."""
-    return render_template('about.html')
+    return render_template('profile.html',form=profile_form)
 
 
 @app.route('/profiles')

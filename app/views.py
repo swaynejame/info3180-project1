@@ -60,8 +60,9 @@ def profile():
 
 @app.route('/profiles')
 def listprofiles():
+    users = db.session.query(UserProfile).all() # or you could have used User.query.all()
     """Render the website's list of profiles page."""
-    return render_template('about.html')
+    return render_template('profiles.html',users=users)
 
 
 @app.route('/profile/<userid>')

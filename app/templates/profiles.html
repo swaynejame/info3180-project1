@@ -8,11 +8,11 @@
         <div>
             <ul>
                 {{ user.photo }}
-                {{ user.firstname }} 
+                {{ user.firstname }}
                 {{ user.lastname }}
                 {{ user.gender }}
                 {{ user.location }}
-                <button class="btn btn-primary">View Profile</button>
+               <a href="/userprofile/{{user.id}}"><button class="btn btn-primary">View Profile</button></a>
             </ul>
         </div>
         {% endfor %}

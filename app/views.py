@@ -66,9 +66,9 @@ def listprofiles():
 
 
 @app.route('/profile/<userid>')
-def userprofile():
+def userprofile(userid):
     """Render the website's individual profile page."""
-    return render_template('about.html')
+    return render_template('userprofile.html',userid = userid)
 
 ###
 # The functions below should be applicable to all Flask apps.

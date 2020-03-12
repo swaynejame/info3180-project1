@@ -23,9 +23,12 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/profile')
+@app.route('/profile',methods=['GET', 'POST'])
 def profile():
     profile_form = ProfileForm()
+
+    if request.method == 'GET':
+        return render_template('profile.html', form=profile_form)
 
     if request.method == 'POST'and profile_form.validate_on_submit():
         # Get validated data from form

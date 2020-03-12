@@ -4,7 +4,7 @@
 {% block main %}
     <h2>Add Profile</h2>
     
-    <form method="post" action="{{ url_for('profile') }}">
+    <form method="post" action="{{ url_for('profile') }}" enctype="multipart/form-data">
 
         {% include 'flash_messages.html' %}
         {{ form.csrf_token }}
@@ -33,9 +33,13 @@
             {{ form.biography.label }} {{ form.biography(class="form-control") }}
         </div>
 
-        <p>Profile Picture</p>
+        <div class="form-group">
+            {{ form.photo.label }}
+            <br>
+            {{ form.photo }}
+        </div>
 
-        <button class="btn btn-primary">Browse...</button>
+        <!-- <button class="btn btn-primary">Browse...</button> -->
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

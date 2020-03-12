@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1>About</h1>
-<p>This webpage is about {{ userid }}.</p>
+{{user.firstname}}
+{{user.lastname}}
+{{user.gender}}
+{{user.email}}
+{{user.location}}
+{{user.biography}}
+{{user.photo}}
+{{user.created_on}}
+
+<button class="btn btn-primary">Send Message</button>
+<button class="btn btn-primary">Follow</button>
 {% endblock %}

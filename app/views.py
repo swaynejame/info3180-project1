@@ -67,8 +67,9 @@ def listprofiles():
 
 @app.route('/profile/<userid>')
 def userprofile(userid):
+    user = db.session.query(UserProfile).get(userid)
     """Render the website's individual profile page."""
-    return render_template('userprofile.html',userid = userid)
+    return render_template('userprofile.html',user=user)
 
 ###
 # The functions below should be applicable to all Flask apps.

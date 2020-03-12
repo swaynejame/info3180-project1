@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+UPLOAD_FOLDER = './app/static/uploads'
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'some$3cretKey'

@@ -7,7 +7,7 @@ This file creates your application.
 
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
-
+import os
 from werkzeug.utils import secure_filename
 
 from .forms import ProfileForm
@@ -38,10 +38,11 @@ def profile():
         email = profile_form.email.data
         location = profile_form.location.data
         biography = profile_form.biography.data
+        photo = profile_form.photo.data
 
-        photo = photo.save(request.files['photo'])
         filename = secure_filename(photo.filename)
-        # url = photo.url(filename)
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
 
         # save user to database
         user = UserProfile(firstname, lastname, gender, email, location, biography, filename)

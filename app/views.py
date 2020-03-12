@@ -35,8 +35,10 @@ def profile():
         email = profile_form.email.data
         location = profile_form.location.data
         biography = profile_form.biography.data
-        photo = profile_form.photo.data
+
+        photo = photo.save(request.files['photo'])
         filename = secure_filename(photo.filename)
+        # url = photo.url(filename)
 
         # save user to database
         user = UserProfile(firstname, lastname, gender, email, location, biography, filename)
@@ -46,9 +48,10 @@ def profile():
         flash('User successfully added')
         return redirect(url_for('listprofiles'))
 
+
     flash_errors(profile_form)
     """Render the website's add profile page."""
-    return render_template('profile.html',form=profile_form, filename=filename)
+    return render_template('profile.html',form=profile_form)
 
 
 @app.route('/profiles')
@@ -61,26 +64,6 @@ def listprofiles():
 def userprofile():
     """Render the website's individual profile page."""
     return render_template('about.html')
-
-# @app.route('/contact',methods=('GET', 'POST'))
-# def contact():
-#     contactform = ProfileForm()
-#     if request.method == 'POST':
-#         if contactform.validate_on_submit():
-#             msg = Message(contactform.subject.data, sender=(contactform.name.data,contactform.email.data),
-#             recipients=["to@example.com"])
-#             msg.body = contactform.message.data
-#             mail.send(msg)
-
-#             flash('Email successfully sent','success')
-#             flash('You have successfully filled out the form', 'success')
-
-#             return redirect( url_for('home'))
-            
-#         flash_errors(contactform)
-#         """Render website's contact page."""
-#     return render_template('contact.html',form=contactform)
-
 
 ###
 # The functions below should be applicable to all Flask apps.

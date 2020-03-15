@@ -7,7 +7,7 @@
         <div>
             <ul>
                 {% for image in images_list %}
-                <img src="{{ url_for('static', filename='uploads/' + image) }}"/>
+                <img src="{{ url_for('static', filename='uploads/' + ) }}"/>
                 {% endfor %}
                 {{ user.firstname }}
                 {{ user.lastname }}

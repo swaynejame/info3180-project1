@@ -1,15 +1,28 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/apps.css') }}">
 
 {% block main %}
-{{user.firstname}}
-{{user.lastname}}
-{{user.gender}}
-{{user.email}}
-{{user.location}}
-{{user.biography}}
-{{user.photo}}
-{{user.created_on}}
+    <div id="parent">
 
-<button class="btn btn-primary">Send Message</button>
-<button class="btn btn-primary">Follow</button>
+        <div id="heading">
+            {% for image in images_list %}
+                <img src="{{ url_for('static', filename='uploads/' + image) }}"/>
+            {% endfor %}
+            <h2>{{user.firstname}} {{user.lastname}}</h2>
+            <p>{{user.location}}</p>
+            <p>{{user.created_on}}</p>
+            <p>{{user.email}}</p>
+        </div>
+
+        <div id="info">
+            <h5>About Me</h5>
+            <p class="textsep">
+                {{user.biography}}
+            </p>
+        </div>  
+
+        <button class="btn btn-primary">Send Message</button>
+        <button class="btn btn-primary">Follow</button>
+    </div>
+    
 {% endblock %}

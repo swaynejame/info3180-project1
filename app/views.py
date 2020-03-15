@@ -12,6 +12,7 @@ from werkzeug.utils import secure_filename
 
 from .forms import ProfileForm
 from .models import UserProfile
+from .iteration import *
 
 ###
 # Routing for your application.
@@ -22,6 +23,10 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
+@app.route('/about/')
+def about():
+    """Render the website's about page."""
+    return render_template('about.html', name="Mary Jane")
 
 @app.route('/profile',methods=['GET', 'POST'])
 def profile():
@@ -61,15 +66,17 @@ def profile():
 @app.route('/profiles')
 def listprofiles():
     users = db.session.query(UserProfile).all() # or you could have used User.query.all()
+    images = get_uploaded_images()
     """Render the website's list of profiles page."""
-    return render_template('profiles.html',users=users)
+    return render_template('profiles.html',users=users,images_list=images)
 
 
 @app.route('/profile/<userid>')
 def userprofile(userid):
     user = db.session.query(UserProfile).get(userid)
+    images = get_uploaded_images()
     """Render the website's individual profile page."""
-    return render_template('userprofile.html',user=user)
+    return render_template('userprofile.html',user=user,images_list=images)
 
 ###
 # The functions below should be applicable to all Flask apps.

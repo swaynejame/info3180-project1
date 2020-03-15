@@ -1,3 +1,7 @@
 body {
     padding-top: 5rem;
 }
+img{
+    max-height: 15%;
+    max-width: 15%;
+}

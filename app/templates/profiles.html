@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/profiles.css') }}">
-
+<link rel="stylesheet" href="{{ url_for('static', filename='css/apps.css') }}">
 {% block main %}
 <h1 class="page-header">Profiles</h1>
     <div id="main">
         {% for user in users %}
         <div>
             <ul>
-                {{ user.photo }}
+                {% for image in images_list %}
+                <img src="{{ url_for('static', filename='uploads/' + image) }}"/>
+                {% endfor %}
                 {{ user.firstname }}
                 {{ user.lastname }}
                 {{ user.gender }}

@@ -10,7 +10,7 @@ class UserProfile(db.Model):
     photo = db.Column(db.String(80))
     created_on = db.Column(db.DateTime, server_default=db.func.now())
 
-    def __init__(self, firstname, lastname,gender, email, location, biography, photo,created):
+    def __init__(self, firstname, lastname,gender, email, location, biography, photo):
         self.firstname = firstname
         self.lastname = lastname
         self.gender = gender
@@ -18,7 +18,6 @@ class UserProfile(db.Model):
         self.location = location
         self.biography = biography
         self.photo = photo
-        self.craeted = created
 
     def __repr__(self):
         return '<User %r>' % self.id

@@ -53,7 +53,7 @@ def profile():
         db.session.add(user)
         db.session.commit()
 
-        flash('User successfully added')
+        flash('User successfully added','success')
         return redirect(url_for('listprofiles'))
 
 

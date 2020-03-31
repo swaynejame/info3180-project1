@@ -1,7 +1,9 @@
 {% extends "base.html" %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/apps.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Fira+Sans&family=Oswald:wght@300&display=swap" rel="stylesheet">
+
 {% block main %}
-<h1 class="page-header">Profiles</h1>
+<h1>Profiles</h1>
     <div>
         {% for user in users %}
             <div>

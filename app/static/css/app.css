@@ -1,5 +1,9 @@
 body {
     padding-top: 5rem;
+    font-family: 'Cute Font', cursive;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #D4E6F1;
 }
 
 /* USER PROFILE CSS */
@@ -12,10 +16,11 @@ body {
     grid-row-gap: 0px;
     width: 50%;
     margin: auto;
-    /* border-radius: 25px; */
+    border-radius: 25px;
     border: 0.5px solid #888;
     box-shadow: 0 0 2px 2px #888;
     height: auto;
+    background-color: white;
     }
 
     #perimage { grid-area: 1 / 1 / 2 / 2; 
@@ -45,7 +50,7 @@ body {
     }
 
     .perbut, .btn-primary{
-        margin-bottom: 6%;
+        margin-bottom: 8%;
         margin-right: 2%;
         margin-left: 2%;
         margin-top: 2%;
@@ -64,10 +69,12 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     width: 50%;
-    /* border-radius: 25px; */
+    border-radius: 25px;
     border: 0.5px solid #888;
     box-shadow: 0 0 2px 2px #888;
     height: auto;
+    margin-top: 3%;
+    background-color: white;
     }
 
 #prodata { grid-area: 1 / 2 / 2 / 3;
@@ -88,3 +95,5 @@ body {
     margin-left: 8%;
     margin-right: 8%;
 }
+
+/* PROFILE CSS */

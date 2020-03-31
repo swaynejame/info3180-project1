@@ -1,46 +1,46 @@
-  
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Fira+Sans&family=Oswald:wght@300&display=swap" rel="stylesheet">
 {% extends 'base.html' %}
 
 {% block main %}
     <h2 id="profilehead">Add Profile</h2>
     
-    <form method="post" action="{{ url_for('profile') }}" enctype="multipart/form-data">
+    <div id="createpro">
+        <form method="post" action="{{ url_for('profile') }}" enctype="multipart/form-data">
 
-        {% include 'flash_messages.html' %}
-        {{ form.csrf_token }}
+            {% include 'flash_messages.html' %}
+            {{ form.csrf_token }}
 
-        <div class="form-group">
-            {{ form.firstname.label }} {{ form.firstname(class="form-control") }}
-        </div>
+            <div class="form-group">
+                {{ form.firstname.label }} {{ form.firstname(class="form-control") }}
+            </div>
 
-        <div class="form-group">
-            {{ form.lastname.label }} {{ form.lastname(class="form-control") }}
-        </div>
+            <div class="form-group">
+                {{ form.lastname.label }} {{ form.lastname(class="form-control") }}
+            </div>
 
-        <div class="form-group">
-            {{ form.gender.label }} {{ form.gender(class="form-control") }}
-        </div>
+            <div class="form-group">
+                {{ form.gender.label }} {{ form.gender(class="form-control") }}
+            </div>
 
-        <div class="form-group">
-            {{ form.email.label }} {{ form.email(class="form-control", placeholder="jdoe@example.com") }}
-        </div>
+            <div class="form-group">
+                {{ form.email.label }} {{ form.email(class="form-control", placeholder="jdoe@example.com") }}
+            </div>
 
-        <div class="form-group">
-            {{ form.location.label }} {{ form.location(class="form-control", placeholder="e.g. Kingston, Jamaica") }}
-        </div>
+            <div class="form-group">
+                {{ form.location.label }} {{ form.location(class="form-control", placeholder="e.g. Kingston, Jamaica") }}
+            </div>
 
-        <div class="form-group">
-            {{ form.biography.label }} {{ form.biography(class="form-control") }}
-        </div>
+            <div class="form-group">
+                {{ form.biography.label }} {{ form.biography(class="form-control") }}
+            </div>
 
-        <div class="form-group">
-            {{ form.photo.label }}
-            <br>
-            {{ form.photo }}
-        </div>
+            <div class="form-group">
+                {{ form.photo.label }}
+                <br>
+                {{ form.photo }}
+            </div>
 
-        <!-- <button class="btn btn-primary">Browse...</button> -->
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 {% endblock %}

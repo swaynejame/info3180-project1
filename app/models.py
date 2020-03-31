@@ -24,4 +24,4 @@ class UserProfile(db.Model):
         self.photo = photo
 
     def __repr__(self):
-        return '<User %r>' % self.id
+        return '<UserProfile %r>' % self.id

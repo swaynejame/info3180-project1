@@ -2,6 +2,8 @@ from . import db
 from datetime import date
 
 class UserProfile(db.Model):
+    __tablename__ = 'user_profile'
+    
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(80))
     lastname = db.Column(db.String(80))
@@ -24,4 +26,4 @@ class UserProfile(db.Model):
         self.photo = photo
 
     def __repr__(self):
-        return '<UserProfile %r>' % self.id
+        return '<User %r>' % self.id

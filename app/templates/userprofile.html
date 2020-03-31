@@ -4,25 +4,25 @@
 {% block main %}
     <div id="parent">
 
-        <div id="heading">
-            {% for image in images_list %}
-                <img src="{{ url_for('static', filename='uploads/' + image) }}"/>
-            {% endfor %}
-            <h2>{{user.firstname}} {{user.lastname}}</h2>
-            <p>{{user.location}}</p>
-            <p>{{user.created_on}}</p>
+        <div id="perimage">
+            <img id="userimg" src="{{ url_for('static', filename='uploads/' + user.photo) }}"/>
+        </div>
+        <div id="perdata">
+            <h4 id="user_name">{{user.firstname}} {{user.lastname}}</h4>
             <p>{{user.email}}</p>
+            <p>{{user.location}}</p>
+            <p>Joined on {{user.created_on}}</p>
         </div>
 
-        <div id="info">
+        <div id="perinfo">
             <h5>About Me</h5>
-            <p class="textsep">
+            <p>
                 {{user.biography}}
             </p>
         </div>  
 
-        <button class="btn btn-primary">Send Message</button>
-        <button class="btn btn-primary">Follow</button>
+        <button class="btn btn-primary" class="perbut" >Send Message</button>
+        <button class="btn btn-primary" class="perbut">Follow</button>
     </div>
     
 {% endblock %}

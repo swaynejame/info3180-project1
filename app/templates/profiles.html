@@ -2,20 +2,26 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/apps.css') }}">
 {% block main %}
 <h1 class="page-header">Profiles</h1>
-    <div id="main">
+    <div>
         {% for user in users %}
-        <div>
-            <ul>
-                {% for image in images_list %}
-                <img src="{{ url_for('static', filename='uploads/' + image) }}"/>
-                {% endfor %}
-                {{ user.firstname }}
-                {{ user.lastname }}
-                {{ user.gender }}
-                {{ user.location }}
-               <a href="/profile/{{user.id}}"><button class="btn btn-primary">View Profile</button></a>
-            </ul>
-        </div>
+            <div>
+                <ul id="proparent">
+                    <img id="proimg" src="{{ url_for('static', filename='uploads/' + user.photo) }}"/>
+                    
+                    <div id="prodata">
+                        <h5>
+                            {{ user.firstname }}
+                            {{ user.lastname }}
+                        </h5>
+                        <p>{{ user.gender }}</p>
+                        <p>{{ user.location }}</p>
+                    </div>
+
+                    <div id="probutton">
+                    <a href="/profile/{{user.id}}"><button class="btn btn-primary">View Profile</button></a>
+                    </div>
+                </ul>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

@@ -1,4 +1,6 @@
 from . import db
+from datetime import date
+
 class UserProfile(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(80))
@@ -8,7 +10,9 @@ class UserProfile(db.Model):
     location = db.Column(db.String(80))
     biography = db.Column(db.String(500))
     photo = db.Column(db.String(80))
-    created_on = db.Column(db.DateTime, server_default=db.func.now())
+    current = date.today()
+    # created_on = db.Column(db.DateTime, server_default=db.func.now())
+    created_on = current.strftime("%B %d, %Y")
 
     def __init__(self, firstname, lastname,gender, email, location, biography, photo):
         self.firstname = firstname

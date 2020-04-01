@@ -8,10 +8,9 @@ UPLOAD_FOLDER = './app/static/uploads'
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'some$3cretKey'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:password@localhost/project1'#'postgresql://yjuldvbtozkiqv:e54f8cc0a69ae63191ac8c318f7a84d47fea3ed9f611d16dbbd9f9037cae4c6a@ec2-54-210-128-153.compute-1.amazonaws.com:5432/d7g0a4mcpbfvrj'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://fvshwbumwxfkyf:c1a66a955b43af8f4eb347230569d122e042c74a93db022d3e82da2e8489d672@ec2-18-209-187-54.compute-1.amazonaws.com:5432/d15u2sbqj36mo3'
 
 # 'postgresql://admin:password@localhost/project1'
-
 db = SQLAlchemy(app)
 
 from app import views, models

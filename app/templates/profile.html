@@ -6,8 +6,6 @@
     
     <div id="createpro">
         <form method="post" action="{{ url_for('profile') }}" enctype="multipart/form-data">
-
-            {% include 'flash_messages.html' %}
             {{ form.csrf_token }}
 
             <div class="form-group">
